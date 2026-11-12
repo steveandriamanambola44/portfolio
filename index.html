@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Steve Andriamanambola — Ingénieur QA</title>
+  <meta name="description" content="Portfolio de Steve Andriamanambola, Ingénieur QA à Antananarivo : tests fonctionnels, automatisation, API REST, analyse métier.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-loading">
+
+  <!-- INTRO : exécution d'une suite de tests -->
+  <div id="intro" class="intro" aria-hidden="true">
+    <div class="intro-window">
+      <div class="intro-bar"><span></span><span></span><span></span><p>qa-runner — steve.portfolio</p></div>
+      <pre id="intro-log" class="intro-log"></pre>
+    </div>
+    <button id="intro-skip" class="intro-skip">Passer ›</button>
+  </div>
+
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#accueil" class="logo">Steve<span>.QA</span></a>
+      <button class="nav-toggle" aria-label="Ouvrir le menu">☰</button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#apropos">À propos</a></li>
+          <li><a href="#parcours">Parcours</a></li>
+          <li><a href="#competences">Compétences</a></li>
+          <li><a href="#exemples">Exemples</a></li>
+          <li><a href="#formation">Formation</a></li>
+          <li><a href="#contact" class="nav-cta">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ACCUEIL -->
+    <section id="accueil" class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <p class="hero-badge"><span class="dot"></span> Disponible pour de nouvelles missions</p>
+          <h1>Steve<br><span class="gradient-text">Andriamanambola</span></h1>
+          <p class="hero-role">Ingénieur QA <span class="sep">·</span> <span id="typed" class="typed"></span></p>
+          <p class="hero-text">
+            Je veille à ce que les applications web et mobiles fonctionnent comme prévu,
+            pour leurs utilisateurs comme pour le métier. Tests fonctionnels, automatisation,
+            API REST et analyse des besoins.
+          </p>
+          <div class="hero-buttons">
+            <a href="#parcours" class="btn btn-primary">Découvrir mon parcours</a>
+            <a href="cv.pdf" class="btn btn-ghost" download>Télécharger mon CV</a>
+          </div>
+        </div>
+
+        <div class="hero-card" aria-hidden="true">
+          <div class="hero-card-head">
+            <span>Rapport qualité</span><span class="pill pill-ok">PASSED</span>
+          </div>
+          <ul class="checks">
+            <li><span class="ok">✓</span> Tests fonctionnels</li>
+            <li><span class="ok">✓</span> Tests UX / UI</li>
+            <li><span class="ok">✓</span> Automatisation web &amp; mobile</li>
+            <li><span class="ok">✓</span> Tests API REST</li>
+            <li><span class="ok">✓</span> Tests de performance</li>
+            <li><span class="ok">✓</span> Analyse métier</li>
+          </ul>
+          <div class="progress"><div class="progress-bar"></div></div>
+          <p class="hero-card-foot">6 / 6 réussis · 0 bug bloquant</p>
+        </div>
+      </div>
+      <a href="#apropos" class="scroll-hint" aria-label="Défiler vers le bas"><span></span></a>
+    </section>
+
+    <!-- CHIFFRES -->
+    <section class="stats">
+      <div class="container stats-grid">
+        <div class="stat reveal"><strong data-count="7">0</strong><span>ans dans l'IT</span></div>
+        <div class="stat reveal"><strong data-count="5">0</strong><span>ans en qualité logicielle</span></div>
+        <div class="stat reveal"><strong data-count="6">0</strong><span>entreprises</span></div>
+        <div class="stat reveal"><strong data-count="20" data-suffix="+">0</strong><span>outils maîtrisés</span></div>
+      </div>
+    </section>
+
+    <!-- À PROPOS -->
+    <section id="apropos" class="section">
+      <div class="container about">
+        <div class="about-visual reveal">
+          <div class="avatar">
+            <img src="photo.jpg" alt="Photo de Steve Andriamanambola" onerror="this.remove()">
+            <span>SA</span>
+          </div>
+        </div>
+        <div class="about-text reveal">
+          <p class="eyebrow">À propos</p>
+          <h2 class="section-title">La qualité, du besoin métier jusqu'à la mise en production</h2>
+          <p>
+            Ingénieur QA passionné par les technologies et l'analyse des besoins métier,
+            j'ai un parcours qui couvre toute la chaîne : <strong>développement web</strong>,
+            <strong>gestion IT</strong>, <strong>analyse fonctionnelle</strong> et
+            <strong>tests de qualité</strong>.
+          </p>
+          <p>
+            Ce double regard technique et métier me permet de comprendre ce que l'utilisateur
+            attend vraiment, de le traduire en cas de test pertinents et de travailler
+            main dans la main avec les équipes de développement.
+          </p>
+          <ul class="about-traits">
+            <li>Rigoureux</li><li>Dynamique</li><li>Excellent relationnel</li><li>Orienté solutions</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARCOURS -->
+    <section id="parcours" class="section section-alt">
+      <div class="container">
+        <p class="eyebrow center">Expériences</p>
+        <h2 class="section-title center">Mon parcours</h2>
+
+        <div class="timeline">
+          <article class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <span class="tl-date">Août 2024 — Aujourd'hui</span>
+              <h3>Tests et QA Analyst</h3>
+              <p class="tl-company">ASTEK Madagascar</p>
+              <ul>
+                <li>Tests fonctionnels et d'interface (UX/UI) sur les équipements</li>
+                <li>Automatisation des tests et évaluation des performances web et mobile</li>
+                <li>Automatisation des tests API REST</li>
+                <li>Rédaction des suites de cas de test, suivi et documentation des bugs</li>
+                <li>Animation d'ateliers et formation des utilisateurs</li>
+              </ul>
+              <div class="tags"><span>FitNesse</span><span>Azure DevOps</span><span>Postman</span><span>Playwright</span></div>
+            </div>
+          </article>
+
+          <article class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <span class="tl-date">Juillet 2022 — Août 2024</span>
+              <h3>Business Analyst &amp; Testeur Qualité</h3>
+              <p class="tl-company">INGENOSYA</p>
+              <ul>
+                <li>Ateliers de recueil et de recette des besoins</li>
+                <li>Diagrammes de cas d'utilisation et d'activité</li>
+                <li>Spécifications fonctionnelles détaillées (règles de gestion, données d'entrée et de sortie)</li>
+                <li>Tests fonctionnels, UX/UI, automatisation et performance</li>
+              </ul>
+              <div class="tags"><span>Jira</span><span>Xray</span><span>Selenium</span><span>JMeter</span></div>
+            </div>
+          </article>
+
+          <article class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <span class="tl-date">Avril 2021 — Juillet 2022</span>
+              <h3>Testeur Qualité</h3>
+              <p class="tl-company">UBITIK — Scoplan &amp; NR-PRO</p>
+              <ul>
+                <li>Tests fonctionnels et d'interface sur applications web et mobiles</li>
+                <li>Automatisation des tests et évaluation des performances</li>
+                <li>Documentation et suivi de l'avancement des bugs</li>
+              </ul>
+              <div class="tags"><span>MantisBT</span><span>Selenium</span><span>Trello</span></div>
+            </div>
+          </article>
+
+          <article class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <span class="tl-date">Nov. 2020 — Fév. 2021</span>
+              <h3>Développeur Web</h3>
+              <p class="tl-company">MAD Services Consulting</p>
+              <ul>
+                <li>Conception de bases de données et réalisation de sites e-commerce</li>
+                <li>Mise en ligne et maintenance des sites</li>
+                <li>Création et documentation d'API REST</li>
+              </ul>
+              <div class="tags"><span>PHP</span><span>Laravel</span><span>MySQL</span></div>
+            </div>
+          </article>
+
+          <article class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <span class="tl-date">Mars 2019 — Août 2020</span>
+              <h3>Responsable IT / Administrateur Web</h3>
+              <p class="tl-company">DHL Global Forwarding Madagascar</p>
+              <ul>
+                <li>Gestion des besoins en solutions matérielles et logicielles</li>
+                <li>Support IT entre Maurice et Madagascar</li>
+                <li>Conception et développement de projets web, spécifications fonctionnelles</li>
+              </ul>
+              <div class="tags"><span>Laravel</span><span>MySQL</span><span>Support IT</span></div>
+            </div>
+          </article>
+
+          <article class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <span class="tl-date">Août — Oct. 2018</span>
+              <h3>Stagiaire Développeur Web</h3>
+              <p class="tl-company">APIQA Communication</p>
+              <ul>
+                <li>Cahier des charges, développement full stack</li>
+                <li>Conception de base de données, design UX/UI et responsive</li>
+              </ul>
+              <div class="tags"><span>Laravel</span><span>MySQL</span><span>UX/UI</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPÉTENCES -->
+    <section id="competences" class="section">
+      <div class="container">
+        <p class="eyebrow center">Boîte à outils</p>
+        <h2 class="section-title center">Compétences techniques</h2>
+
+        <div class="skills">
+          <div class="skill-card reveal">
+            <div class="skill-icon">🧪</div>
+            <h3>Test &amp; automatisation</h3>
+            <div class="tags"><span>Selenium</span><span>Playwright</span><span>FitNesse</span><span>Postman</span><span>JMeter</span><span>OWASP ZAP</span></div>
+          </div>
+          <div class="skill-card reveal">
+            <div class="skill-icon">📋</div>
+            <h3>Gestion &amp; suivi</h3>
+            <div class="tags"><span>Azure DevOps</span><span>Jira</span><span>Xray</span><span>Jama</span><span>MantisBT</span><span>Trello</span></div>
+          </div>
+          <div class="skill-card reveal">
+            <div class="skill-icon">💻</div>
+            <h3>Langages</h3>
+            <div class="tags"><span>Java</span><span>JavaScript</span><span>PHP</span><span>SQL</span><span>HTML5</span><span>CSS3</span></div>
+          </div>
+          <div class="skill-card reveal">
+            <div class="skill-icon">🗄️</div>
+            <h3>Frameworks &amp; données</h3>
+            <div class="tags"><span>Laravel</span><span>CakePHP</span><span>WordPress</span><span>MySQL</span><span>PostgreSQL</span><span>Oracle</span></div>
+          </div>
+          <div class="skill-card reveal">
+            <div class="skill-icon">🛠️</div>
+            <h3>Outils</h3>
+            <div class="tags"><span>Git</span><span>VS Code</span><span>Odoo</span><span>Photoshop</span><span>Microsoft Office</span></div>
+          </div>
+          <div class="skill-card reveal">
+            <div class="skill-icon">🌍</div>
+            <h3>Langues</h3>
+            <ul class="langs">
+              <li><span>Malagasy</span><div class="bar"><i style="--w:100%"></i></div><em>Maternelle</em></li>
+              <li><span>Français</span><div class="bar"><i style="--w:90%"></i></div><em>Courant</em></li>
+              <li><span>Anglais</span><div class="bar"><i style="--w:60%"></i></div><em>Intermédiaire</em></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXEMPLES -->
+    <section id="exemples" class="section section-dark">
+      <div class="container">
+        <p class="eyebrow center">Démonstrations</p>
+        <h2 class="section-title center">Exemples de tests automatisés</h2>
+        <p class="section-intro">
+          Cinq projets réalisés sur des applications publiques prévues pour l'entraînement,
+          un par type de test que je pratique en mission. Le code est complet, exécutable et documenté.
+        </p>
+
+        <div class="demo reveal">
+          <div class="demo-tabs" role="tablist">
+            <button class="demo-tab active" data-tab="d1" role="tab"><span>01</span> Playwright<small>Test end-to-end web</small></button>
+            <button class="demo-tab" data-tab="d2" role="tab"><span>02</span> Selenium Java<small>Formulaires &amp; cas limites</small></button>
+            <button class="demo-tab" data-tab="d3" role="tab"><span>03</span> Postman<small>Tests API REST</small></button>
+            <button class="demo-tab" data-tab="d4" role="tab"><span>04</span> JMeter<small>Performance</small></button>
+            <button class="demo-tab" data-tab="d5" role="tab"><span>05</span> FitNesse<small>Tests API en tables</small></button>
+          </div>
+
+          <!-- 01 PLAYWRIGHT -->
+          <div class="demo-panel active" id="d1" role="tabpanel">
+            <div class="demo-info">
+              <div class="demo-head">
+                <h3>Parcours d'achat sur une boutique en ligne</h3>
+                <span class="result result-ok">✓ 8 / 8 réussis</span>
+              </div>
+              <p>Connexion, ajout au panier, paiement et vérification du total sur Sauce Demo. Les cas d'erreur sont pilotés par les données.</p>
+              <ul class="demo-points">
+                <li>Pattern Page Object Model</li>
+                <li>Sélecteurs stables <code>data-test</code></li>
+                <li>Captures, vidéos et traces en cas d'échec</li>
+              </ul>
+              <div class="demo-links">
+                <a href="exemples/1-playwright-saucedemo/playwright-report/index.html" target="_blank" class="btn btn-sm btn-primary">Voir le rapport</a>
+                <a href="exemples/1-playwright-saucedemo/README.md" target="_blank" class="btn btn-sm btn-ghost">Code source</a>
+              </div>
+            </div>
+            <pre class="demo-code"><code class="language-javascript">test('achat de deux produits de bout en bout', async ({ page }) =&gt; {
+  await inventory.addToCart('Sauce Labs Backpack');
+  await inventory.addToCart('Sauce Labs Bike Light');
+  await expect(inventory.cartBadge).toHaveText('2');
+
+  await inventory.openCart();
+  await checkout.checkoutButton.click();
+  await checkout.fillInformation('Steve', 'Andriamanambola', '101');
+
+  await expect(checkout.subtotal).toHaveText('Item total: $39.98');
+
+  await checkout.finishButton.click();
+  await expect(checkout.complete).toHaveText('Thank you for your order!');
+});</code></pre>
+          </div>
+
+          <!-- 02 SELENIUM -->
+          <div class="demo-panel" id="d2" role="tabpanel">
+            <div class="demo-info">
+              <div class="demo-head">
+                <h3>Formulaires et éléments d'interface</h3>
+                <span class="result result-info">Java · JUnit 5</span>
+              </div>
+              <p>Connexion, cases à cocher, listes déroulantes, alertes JavaScript et contenu chargé dynamiquement.</p>
+              <ul class="demo-points">
+                <li>Tests paramétrés avec <code>@CsvSource</code></li>
+                <li>Attentes explicites, aucun <code>Thread.sleep</code></li>
+                <li>Mode headless pour l'intégration continue</li>
+              </ul>
+              <div class="demo-links">
+                <a href="exemples/2-selenium-java/README.md" target="_blank" class="btn btn-sm btn-ghost">Code source</a>
+              </div>
+            </div>
+            <pre class="demo-code"><code class="language-java">@ParameterizedTest(name = "Refus : utilisateur=''{0}''")
+@CsvSource({
+    "inconnu,  SuperSecretPassword!, Your username is invalid!",
+    "tomsmith, mauvais,              Your password is invalid!",
+    "'',       '',                   Your username is invalid!"
+})
+void connexionRefusee(String user, String pass, String attendu) {
+    LoginPage page = new LoginPage(driver, wait).open(BASE_URL);
+    page.login(user, pass);
+
+    assertTrue(page.flashMessage().contains(attendu));
+}</code></pre>
+          </div>
+
+          <!-- 03 POSTMAN -->
+          <div class="demo-panel" id="d3" role="tabpanel">
+            <div class="demo-info">
+              <div class="demo-head">
+                <h3>CRUD complet sur une API de réservation</h3>
+                <span class="result result-ok">✓ 27 / 27 assertions</span>
+              </div>
+              <p>Authentification, création, recherche, modification et suppression, avec les refus attendus (403, 404). Exécuté en ligne de commande avec Newman.</p>
+              <ul class="demo-points">
+                <li>Chaînage : token et identifiant réutilisés</li>
+                <li>Validation du schéma JSON</li>
+                <li>Contrôle du temps de réponse sur chaque requête</li>
+              </ul>
+              <div class="demo-links">
+                <a href="exemples/3-postman-api/rapport/rapport-api.html" target="_blank" class="btn btn-sm btn-primary">Voir le rapport</a>
+                <a href="exemples/3-postman-api/README.md" target="_blank" class="btn btn-sm btn-ghost">Code source</a>
+              </div>
+            </div>
+            <pre class="demo-code"><code class="language-javascript">// POST /booking : tests de la réponse
+pm.test('Statut 200', () =&gt; pm.response.to.have.status(200));
+
+const body = pm.response.json();
+pm.test('Un identifiant est attribué', () =&gt;
+  pm.expect(body.bookingid).to.be.a('number'));
+
+pm.test('Les données envoyées sont renvoyées', () =&gt; {
+  pm.expect(body.booking.totalprice).to.eql(150);
+  pm.expect(body.booking.bookingdates.checkin).to.eql('2026-12-01');
+});
+
+// réutilisé par GET, PATCH et DELETE
+pm.collectionVariables.set('bookingId', body.bookingid);</code></pre>
+          </div>
+
+          <!-- 04 JMETER -->
+          <div class="demo-panel" id="d4" role="tabpanel">
+            <div class="demo-info">
+              <div class="demo-head">
+                <h3>Montée en charge d'un parcours de réservation</h3>
+                <span class="result result-info">SLA &lt; 2 s</span>
+              </div>
+              <p>Des utilisateurs virtuels recherchent, choisissent et paient un vol. La charge est paramétrable et un tableau de bord HTML est généré.</p>
+              <ul class="demo-points">
+                <li>Données variables via un fichier CSV</li>
+                <li>Corrélation : prix extrait de la réponse précédente</li>
+                <li>Transaction pour mesurer le parcours complet</li>
+              </ul>
+              <div class="demo-links">
+                <a href="exemples/4-jmeter-performance/README.md" target="_blank" class="btn btn-sm btn-ghost">Plan de test</a>
+              </div>
+            </div>
+            <pre class="demo-code"><code class="language-bash"># 25 utilisateurs, montée en 60 s, 5 itérations
+jmeter -n -t blazedemo-reservation.jmx \
+       -Jusers=25 -Jrampup=60 -Jloops=5 \
+       -l resultats.jtl -e -o rapport
+
+# Scénario par utilisateur virtuel
+#  01 GET  /                  → "Welcome to the Simple Travel Agency!"
+#  02 POST /reserve.php       → départ / destination lus dans trajets.csv
+#  03 POST /purchase.php      → prix corrélé : name="price" value="(.+?)"
+#  04 POST /confirmation.php  → "Thank you for your purchase today!"
+#  SLA : chaque page &lt; 2000 ms · réflexion 1 à 3 s</code></pre>
+          </div>
+
+          <!-- 05 FITNESSE API -->
+          <div class="demo-panel" id="d5" role="tabpanel">
+            <div class="demo-info">
+              <div class="demo-head">
+                <h3>Tests API écrits en tables, lancés depuis le wiki</h3>
+                <span class="result result-info">FitNesse · HSAC</span>
+              </div>
+              <p>Le cycle de vie complet d'une réservation est décrit en tables FitNesse, lisibles par le métier, et exécuté d'un clic depuis l'interface web. Aucune ligne de Java n'est à écrire.</p>
+              <ul class="demo-points">
+                <li>Fixture <code>json http test</code> et contrôles JsonPath</li>
+                <li>Jeton et identifiant capturés puis réutilisés (<code>$id=</code>)</li>
+                <li>Scénario piloté par une table de données</li>
+              </ul>
+              <div class="demo-links">
+                <a href="exemples/5-fitnesse-api/README.md" target="_blank" class="btn btn-sm btn-ghost">Code source</a>
+              </div>
+            </div>
+            <div class="fit-window">
+              <div class="fit-bar"><span></span><span></span><span></span><p>localhost:9090/RestfulBookerApi.TC03_CycleDeVieReservation</p></div>
+              <div class="fit-body">
+                <table class="fit-table">
+                  <tr><td>script</td><td colspan="3">json http test</td></tr>
+                  <tr><td>post</td><td>${RESERVATION}</td><td>to</td><td>…/booking</td></tr>
+                  <tr><td>check</td><td>response status</td><td colspan="2" class="pass">200</td></tr>
+                  <tr><td>$id=</td><td>json path</td><td colspan="2">bookingid <span class="fit-sym">$id&lt;-[4721]</span></td></tr>
+                  <tr><td>check</td><td>json path</td><td>booking.totalprice</td><td class="pass">150</td></tr>
+                  <tr><td class="pass">reject</td><td>patch</td><td>…/booking/$id</td><td>{"totalprice": 1}</td></tr>
+                  <tr><td>check</td><td>response status</td><td colspan="2" class="pass">403</td></tr>
+                  <tr><td>delete</td><td colspan="3">…/booking/$id</td></tr>
+                  <tr><td>check</td><td>response status</td><td colspan="2" class="pass">201</td></tr>
+                </table>
+                <table class="fit-table">
+                  <tr><td colspan="3">authentification</td></tr>
+                  <tr class="fit-head"><td>utilisateur</td><td>motdepasse</td><td>jeton</td></tr>
+                  <tr><td>admin</td><td>password123</td><td class="pass">true</td></tr>
+                  <tr><td>admin</td><td>mauvais</td><td class="pass">false</td></tr>
+                  <tr><td>inconnu</td><td>password123</td><td class="pass">false</td></tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMATION -->
+    <section id="formation" class="section section-alt">
+      <div class="container">
+        <p class="eyebrow center">Diplômes &amp; certifications</p>
+        <h2 class="section-title center">Formation</h2>
+        <div class="edu-grid">
+          <div class="edu-card highlight reveal">
+            <span class="edu-year">2023</span>
+            <h3>Certificat Test Automatisé — Selenium</h3>
+            <p>ESTI, Antananarivo</p>
+          </div>
+          <div class="edu-card reveal">
+            <span class="edu-year">2020</span>
+            <h3>Master II Finance / Comptabilité</h3>
+            <p>E-Media, Antananarivo</p>
+          </div>
+          <div class="edu-card reveal">
+            <span class="edu-year">2018</span>
+            <h3>Licence Développement Web &amp; Design</h3>
+            <p>IT-University, Antananarivo</p>
+          </div>
+          <div class="edu-card reveal">
+            <span class="edu-year">2016</span>
+            <h3>First Certificate in English</h3>
+            <p>CNELA, Antananarivo</p>
+          </div>
+          <div class="edu-card reveal">
+            <span class="edu-year">2013 — 2015</span>
+            <h3>Études en Mathématiques</h3>
+            <p>Université d'Antananarivo</p>
+          </div>
+          <div class="edu-card reveal">
+            <span class="edu-year">2013</span>
+            <h3>Baccalauréat série D</h3>
+            <p>Lycée privé Stella Maris, Toamasina</p>
+          </div>
+        </div>
+
+        <div class="hobbies reveal">
+          <h3>En dehors du travail</h3>
+          <p>
+            🏀 Capitaine de l'équipe de basket de la promotion 9A à l'IT-University, joueur des Smatch'in
+            · ⚽ Équipe de football de la promotion 9A · 🏊 Club de natation BOA
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact-section">
+      <div class="container contact reveal">
+        <h2>Travaillons ensemble</h2>
+        <p>Un projet à fiabiliser, une recette à organiser, une campagne de tests à automatiser ? Parlons-en.</p>
+        <div class="contact-links">
+          <a href="mailto:steveandriamanambola44@gmail.com" class="btn btn-light">✉ steveandriamanambola44@gmail.com</a>
+          <a href="tel:+261340397890" class="btn btn-ghost-light">☎ +261 34 03 978 90</a>
+        </div>
+        <p class="contact-loc">📍 Antananarivo, Madagascar</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Steve Andriamanambola · Ingénieur QA</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

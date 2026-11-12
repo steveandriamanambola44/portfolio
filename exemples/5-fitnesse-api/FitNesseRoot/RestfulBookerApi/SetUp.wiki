@@ -1,0 +1,2 @@
+|import                      |
+|nl.hsac.fitnesse.fixture.slim|

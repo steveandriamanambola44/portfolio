@@ -1,0 +1,9 @@
+---
+Test
+---
+!3 Le service répond et dans un délai acceptable
+
+|script        |json http test           |
+|get from      |${BASE_URL}/ping         |
+|check         |response status|201      |
+|check         |response time  |<3000    |

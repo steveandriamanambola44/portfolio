@@ -1,0 +1,268 @@
+{
+  "info": {
+    "name": "Restful Booker — Tests API CRUD",
+    "description": "Tests API REST de bout en bout sur https://restful-booker.herokuapp.com : authentification, création, lecture, mise à jour, suppression et cas d'erreur.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "event": [
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "pm.test('Temps de réponse < 3000 ms', () => pm.expect(pm.response.responseTime).to.be.below(3000));"
+        ]
+      }
+    }
+  ],
+  "item": [
+    {
+      "name": "01 - Authentification valide",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Statut 200', () => pm.response.to.have.status(200));",
+              "const body = pm.response.json();",
+              "pm.test('Un token est renvoyé', () => pm.expect(body.token).to.be.a('string').and.not.empty);",
+              "pm.collectionVariables.set('token', body.token);"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"username\": \"{{username}}\",\n  \"password\": \"{{password}}\"\n}" },
+        "url": "{{baseUrl}}/auth"
+      }
+    },
+    {
+      "name": "02 - Authentification refusée",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const body = pm.response.json();",
+              "pm.test('Aucun token renvoyé', () => pm.expect(body).to.not.have.property('token'));",
+              "pm.test('Motif : Bad credentials', () => pm.expect(body.reason).to.eql('Bad credentials'));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"username\": \"{{username}}\",\n  \"password\": \"mauvais\"\n}" },
+        "url": "{{baseUrl}}/auth"
+      }
+    },
+    {
+      "name": "03 - Créer une réservation",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.collectionVariables.set('firstname', 'Steve' + Math.floor(Math.random() * 10000));"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Statut 200', () => pm.response.to.have.status(200));",
+              "const body = pm.response.json();",
+              "pm.test('Un identifiant est attribué', () => pm.expect(body.bookingid).to.be.a('number'));",
+              "pm.test('Les données envoyées sont renvoyées', () => {",
+              "  pm.expect(body.booking.firstname).to.eql(pm.collectionVariables.get('firstname'));",
+              "  pm.expect(body.booking.totalprice).to.eql(150);",
+              "  pm.expect(body.booking.bookingdates.checkin).to.eql('2026-12-01');",
+              "});",
+              "pm.test('Le schéma de réponse est conforme', () => {",
+              "  pm.response.to.have.jsonSchema({",
+              "    type: 'object',",
+              "    required: ['bookingid', 'booking'],",
+              "    properties: {",
+              "      bookingid: { type: 'number' },",
+              "      booking: {",
+              "        type: 'object',",
+              "        required: ['firstname', 'lastname', 'totalprice', 'depositpaid', 'bookingdates'],",
+              "        properties: { totalprice: { type: 'number' }, depositpaid: { type: 'boolean' } }",
+              "      }",
+              "    }",
+              "  });",
+              "});",
+              "pm.collectionVariables.set('bookingId', body.bookingid);"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Accept", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstname\": \"{{firstname}}\",\n  \"lastname\": \"Andriamanambola\",\n  \"totalprice\": 150,\n  \"depositpaid\": true,\n  \"bookingdates\": { \"checkin\": \"2026-12-01\", \"checkout\": \"2026-12-05\" },\n  \"additionalneeds\": \"Petit-déjeuner\"\n}"
+        },
+        "url": "{{baseUrl}}/booking"
+      }
+    },
+    {
+      "name": "04 - Lire la réservation créée",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Statut 200', () => pm.response.to.have.status(200));",
+              "pm.test('La réservation est persistée', () => {",
+              "  pm.expect(pm.response.json().firstname).to.eql(pm.collectionVariables.get('firstname'));",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Accept", "value": "application/json" }],
+        "url": "{{baseUrl}}/booking/{{bookingId}}"
+      }
+    },
+    {
+      "name": "05 - Rechercher par prénom",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Statut 200', () => pm.response.to.have.status(200));",
+              "pm.test('La réservation apparaît dans les résultats', () => {",
+              "  const ids = pm.response.json().map(b => b.bookingid);",
+              "  pm.expect(ids).to.include(pm.collectionVariables.get('bookingId'));",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Accept", "value": "application/json" }],
+        "url": {
+          "raw": "{{baseUrl}}/booking?firstname={{firstname}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["booking"],
+          "query": [{ "key": "firstname", "value": "{{firstname}}" }]
+        }
+      }
+    },
+    {
+      "name": "06 - Modifier sans token (refus attendu)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Statut 403 Forbidden', () => pm.response.to.have.status(403));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Accept", "value": "application/json" }
+        ],
+        "body": { "mode": "raw", "raw": "{ \"totalprice\": 1 }" },
+        "url": "{{baseUrl}}/booking/{{bookingId}}"
+      }
+    },
+    {
+      "name": "07 - Modifier partiellement (PATCH)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Statut 200', () => pm.response.to.have.status(200));",
+              "const body = pm.response.json();",
+              "pm.test('Le prix est mis à jour', () => pm.expect(body.totalprice).to.eql(199));",
+              "pm.test('Les autres champs sont conservés', () => pm.expect(body.lastname).to.eql('Andriamanambola'));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Accept", "value": "application/json" },
+          { "key": "Cookie", "value": "token={{token}}" }
+        ],
+        "body": { "mode": "raw", "raw": "{ \"totalprice\": 199 }" },
+        "url": "{{baseUrl}}/booking/{{bookingId}}"
+      }
+    },
+    {
+      "name": "08 - Supprimer la réservation",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Statut 201 (comportement documenté de l\\'API)', () => pm.response.to.have.status(201));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [{ "key": "Cookie", "value": "token={{token}}" }],
+        "url": "{{baseUrl}}/booking/{{bookingId}}"
+      }
+    },
+    {
+      "name": "09 - Vérifier la suppression",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Statut 404 Not Found', () => pm.response.to.have.status(404));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Accept", "value": "application/json" }],
+        "url": "{{baseUrl}}/booking/{{bookingId}}"
+      }
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "https://restful-booker.herokuapp.com" },
+    { "key": "username", "value": "admin" },
+    { "key": "password", "value": "password123" },
+    { "key": "token", "value": "" },
+    { "key": "bookingId", "value": "" },
+    { "key": "firstname", "value": "" }
+  ]
+}

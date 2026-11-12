@@ -1,0 +1,9 @@
+node_modules/
+test-results/
+bin/
+obj/
+resultats.jtl
+exemples/5-fitnesse-api/runtime/
+exemples/5-fitnesse-api/FitNesseRoot/files/
+exemples/5-fitnesse-api/FitNesseRoot/RerunLastFailures*
+_*.png

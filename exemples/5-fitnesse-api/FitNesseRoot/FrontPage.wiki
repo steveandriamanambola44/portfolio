@@ -1,0 +1,5 @@
+!1 Portfolio — Tests API avec !-FitNesse-!
+
+Suite de tests de l'API REST publique [[Restful Booker][https://restful-booker.herokuapp.com/apidoc/index.html]], écrite en tables !-FitNesse-! avec les fixtures [[HSAC][https://github.com/fhoeben/hsac-fitnesse-fixtures]].
+
+ * '''[[Ouvrir la suite de tests][.RestfulBookerApi]]''' puis cliquer sur '''Suite''' pour l'exécuter.

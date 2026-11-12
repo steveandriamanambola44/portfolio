@@ -1,0 +1,23 @@
+---
+Test
+---
+!3 Seuls des identifiants valides donnent un jeton d'accès
+
+Scénario réutilisable : on envoie les identifiants, on vérifie la présence du jeton.
+
+!|table template |authentification                                                                           |
+|post            |{"username": "@{utilisateur}", "password": "@{motdepasse}"}|to|${BASE_URL}/auth   |
+|check           |response status |200                                                                       |
+|check           |json path exists|token                                  |@{jeton}                          |
+
+|script          |json http test                                                                             |
+|set content type|application/json                                                                           |
+
+Cas de test pilotés par les données :
+
+|authentification                              |
+|utilisateur  |motdepasse     |jeton           |
+|${ADMIN_USER}|${ADMIN_PASS}  |true            |
+|${ADMIN_USER}|mauvais        |false           |
+|inconnu      |${ADMIN_PASS}  |false           |
+|             |               |false           |

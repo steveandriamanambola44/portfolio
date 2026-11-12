@@ -1,0 +1,12 @@
+{
+  "name": "postman-restful-booker",
+  "version": "1.0.0",
+  "description": "Tests API REST Postman exécutés avec Newman",
+  "scripts": {
+    "test": "newman run restful-booker.postman_collection.json -r cli,htmlextra --reporter-htmlextra-export rapport/rapport-api.html --reporter-htmlextra-title \"Restful Booker - Tests API\""
+  },
+  "devDependencies": {
+    "newman": "^6.2.1",
+    "newman-reporter-htmlextra": "^1.23.1"
+  }
+}

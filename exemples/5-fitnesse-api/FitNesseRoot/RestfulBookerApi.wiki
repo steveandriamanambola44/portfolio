@@ -1,0 +1,21 @@
+---
+Help: Tests de l'API REST Restful Booker avec les fixtures HSAC (json http test)
+Suite
+---
+!1 API Restful Booker
+
+Tests fonctionnels de l'API de réservation [[Restful Booker][https://restful-booker.herokuapp.com/apidoc/index.html]].
+Chaque page est un cas de test autonome, lisible par le métier : une ligne = une action ou une vérification.
+
+!contents -R2 -g -p -f -h
+
+!*> Configuration
+!define TEST_SYSTEM {slim}
+!define slim.port {0}
+!path runtime/fixtures
+!path runtime/fixtures/*.jar
+
+!define BASE_URL {https://restful-booker.herokuapp.com}
+!define ADMIN_USER {admin}
+!define ADMIN_PASS {password123}
+*!

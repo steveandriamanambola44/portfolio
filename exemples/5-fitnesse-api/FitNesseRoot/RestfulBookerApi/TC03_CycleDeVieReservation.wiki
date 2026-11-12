@@ -1,0 +1,66 @@
+---
+Test
+---
+!3 Créer, consulter, modifier puis supprimer une réservation
+
+!define RESERVATION { {{{
+{
+  "firstname": "Steve",
+  "lastname": "Andriamanambola",
+  "totalprice": 150,
+  "depositpaid": true,
+  "bookingdates": { "checkin": "2026-12-01", "checkout": "2026-12-05" },
+  "additionalneeds": "Petit-déjeuner"
+}
+}}} }
+
+!4 1. Obtenir un jeton
+|script          |json http test                                                          |
+|set content type|application/json                                                        |
+|set value       |application/json        |for header        |Accept                      |
+|post            |{"username": "${ADMIN_USER}", "password": "${ADMIN_PASS}"}|to|${BASE_URL}/auth|
+|$jeton=         |json path               |token                                          |
+
+!4 2. Créer la réservation
+|script                                                                                   |
+|post            |${RESERVATION}          |to                |${BASE_URL}/booking         |
+|check           |response status         |200                                            |
+|$id=            |json path               |bookingid                                      |
+|check           |json path               |booking.firstname |Steve                       |
+|check           |json path               |booking.totalprice|150                         |
+|check           |json path               |booking.bookingdates.checkin|2026-12-01        |
+
+!4 3. La consulter
+|script                                                                                   |
+|get from        |${BASE_URL}/booking/$id                                                 |
+|check           |response status         |200                                            |
+|check           |json path               |lastname          |Andriamanambola             |
+|check           |json path               |depositpaid       |true                        |
+
+!4 4. La retrouver par recherche
+|script                                                                                   |
+|get from        |${BASE_URL}/booking?lastname=Andriamanambola                            |
+|check           |json path count         |$[?(@.bookingid == $id)]|1                     |
+
+!4 5. Une modification sans jeton est refusée
+|script                                                                                   |
+|reject          |patch                   |${BASE_URL}/booking/$id|with|{"totalprice": 1} |
+|check           |response status         |403                                            |
+
+!4 6. Une modification avec jeton est acceptée
+|script                                                                                   |
+|set value       |token=$jeton            |for header        |Cookie                      |
+|patch           |${BASE_URL}/booking/$id |with              |{"totalprice": 199}         |
+|check           |response status         |200                                            |
+|check           |json path               |totalprice        |199                         |
+|check           |json path               |lastname          |Andriamanambola             |
+
+!4 7. La supprimer
+|script                                                                                   |
+|delete          |${BASE_URL}/booking/$id                                                 |
+|check           |response status         |201                                            |
+
+!4 8. Elle n'existe plus
+|script                                                                                   |
+|reject          |get from                |${BASE_URL}/booking/$id                        |
+|check           |response status         |404                                            |
